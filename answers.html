@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 2 answers</title>
+    <link rel="stylesheet" href="answers.css">
+</head>
+<body>
+    <h1>Homework 2</h1>
+    <p>Niki Durzynski, section 002</p>
+    <h2>1. Cascade investigation</h2>
+    <p>The first review box changed from rgb(225, 214, 151) to transparent after I removed its background-color declaration in the browser. The saved stylesheet keeps the original color.</p>
+    <pre><code>.review p { background-color: transparent; }
+.review .quote { background-color: #e1d697; }</code></pre>
+    <p>The second selector has specificity 0,2,0. The first has 0,1,1, so the second wins. Removing its background declaration lets the first rule apply. The body background shows through the box. Background color is not inherited. Source order breaks a tie in specificity, but these rules are not tied.</p>
+    <p>Before, 480px:</p>
+    <img src="evidence/final-480.png" alt="Original review background at 480px">
+    <p>After, 480px:</p>
+    <img src="evidence/cascade-after-480.png" alt="First review background removed at 480px">
+    <h2>2. Responsive trade-off</h2>
+    <p>At a 480px viewport, the main region and sidebar each measured 456px. The document scrollWidth was 480px. These values came from getComputedStyle, not screenshots of the Computed panel.</p>
+    <pre><code>.movie-frame {
+    grid-template-columns: minmax(0, 1fr) 250px;
+    width: 800px;
+    max-width: calc(100% - 24px);
+}
+@media (max-width: 700px) {
+    .movie-frame {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "reviews" "overview" "counter";
+    }
+    .review-columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}</code></pre>
+    <p>I restored two columns at 480px for comparison. The main region shrank to 206px while the sidebar stayed 250px. It still fit, but the review text became narrow. Stacking gives reviews more space. The trade-off is a longer page, with the overview below the reviews.</p>
+    <p>Two-column comparison, 480px:</p>
+    <img src="evidence/comparison-fixed-sidebar-480.png" alt="Narrow reviews beside fixed sidebar at 480px">
+    <h2>Validation</h2>
+    <p>W3C HTML validation returned zero errors, with informational self-closing-tag notices. CSS validation returned zero errors and zero warnings.</p>
+    <ul>
+        <li><a href="evidence/html-validation.json">HTML validator response</a></li>
+        <li><a href="evidence/css-validation.xml">CSS validator response</a></li>
+        <li><a href="evidence/measurements.json">Browser measurements</a></li>
+    </ul>
+    <p><a href="index.html">Movie review</a></p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+[
+  {
+    "viewport": 1024,
+    "scrollWidth": 1024,
+    "frame": "800px",
+    "main": "550px",
+    "sidebar": "250px",
+    "columns": "550px 250px",
+    "quoteBackground": "rgb(225, 214, 151)",
+    "reviews": 8,
+    "brokenImages": []
+  },
+  {
+    "viewport": 700,
+    "scrollWidth": 700,
+    "frame": "676px",
+    "main": "676px",
+    "sidebar": "676px",
+    "columns": "676px",
+    "quoteBackground": "rgb(225, 214, 151)",
+    "reviews": 8,
+    "brokenImages": []
+  },
+  {
+    "viewport": 480,
+    "scrollWidth": 480,
+    "frame": "456px",
+    "main": "456px",
+    "sidebar": "456px",
+    "columns": "456px",
+    "quoteBackground": "rgb(225, 214, 151)",
+    "reviews": 8,
+    "brokenImages": []
+  },
+  {
+    "experiment": "cascade",
+    "before": "rgb(225, 214, 151)",
+    "after": "rgba(0, 0, 0, 0)",
+    "winningRule": ".review p { background-color: transparent; }"
+  },
+  {
+    "experiment": "fixed-sidebar",
+    "main": "206px",
+    "sidebar": "250px",
+    "scrollWidth": 480
+  }
+]

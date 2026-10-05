@@ -1,0 +1,221 @@
+/*
+ * Niki Durzynski | Section 002
+ * Homework 2: My Movie Review.
+ * Movie review layout and colors.
+ * Grid sets the columns; Flexbox aligns critic details.
+ * The columns stack below 700px.
+ */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e1d697 url("background.png") repeat;
+    font: 8pt Verdana, Tahoma, sans-serif;
+    color: #000;
+}
+
+.banner {
+    height: 50px;
+    background: url("bannerbackground.png") repeat-x;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 974px;
+    height: 50px;
+    max-width: none;
+}
+
+h1 {
+    text-align: center;
+    font: bold 24pt Tahoma, Verdana, sans-serif;
+}
+
+.movie-frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    grid-template-areas: "reviews overview" "counter counter";
+    width: 800px;
+    max-width: calc(100% - 24px);
+    margin: 0 auto 48px;
+    border: 4px solid gray;
+}
+
+.main-reviews {
+    grid-area: reviews;
+    min-width: 0;
+}
+
+.rating {
+    display: flex;
+    align-items: baseline;
+    min-height: 83px;
+    background: url("rottenbackground.png") repeat-x;
+    color: white;
+}
+
+.rating img {
+    width: 98px;
+    height: 83px;
+    align-self: flex-start;
+}
+
+.score {
+    font-size: 48pt;
+    font-weight: bold;
+    color: red;
+}
+
+.review-total {
+    margin-left: 5px;
+}
+
+.review-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2%;
+    padding: 0 2%;
+}
+
+.review-column {
+    min-width: 0;
+}
+
+/* Without the later .quote background, this rule paints the box. */
+.review p {
+    background-color: transparent;
+}
+
+.review .quote {
+    padding: 8px;
+    border: 2px solid gray;
+    background-color: #e1d697;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    min-height: 25px;
+}
+
+.quote img {
+    float: left;
+    margin-right: 5px;
+}
+
+.critic {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 3em;
+}
+
+.critic img {
+    flex: 0 0 auto;
+}
+
+.critic span {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.overview {
+    grid-area: overview;
+    background-color: #a2b964;
+    font-family: Arial, sans-serif;
+    min-width: 0;
+}
+
+.overview > img {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+.overview dl {
+    padding: 0 10px;
+}
+
+.overview dt {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+.overview dd {
+    overflow-wrap: break-word;
+}
+
+.counter {
+    grid-area: counter;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    background-color: #a2b964;
+}
+
+.validators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    padding: 5px;
+    background: #fff;
+}
+
+.validators a {
+    padding: 4px;
+}
+
+a {
+    color: #102856;
+}
+
+a:focus {
+    outline: 3px solid #102856;
+    outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+    .movie-frame {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "reviews" "overview" "counter";
+    }
+
+    .review-columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .overview > img {
+        margin: 0 auto;
+    }
+
+    .rating {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .review-total {
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 10pt;
+    }
+
+    h1 {
+        font-size: 22pt;
+    }
+
+    .review-total {
+        font-size: 8pt;
+    }
+
+    .critic {
+        margin-bottom: 2em;
+    }
+}
+
